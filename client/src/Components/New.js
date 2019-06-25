@@ -32,7 +32,7 @@ class New extends Component {
 
     makePet = (e) => {
       e.preventDefault();
-      axios.post("http://localhost:8000/api/pets", this.state.newPet)
+      axios.post("/api/pets", this.state.newPet)
         .then( res => {
           if(res.data.errors){
             this.setState({errors: res.data.errors.errors})

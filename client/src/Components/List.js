@@ -11,7 +11,7 @@ class List extends Component {
     }
   }
   componentDidMount = () => {
-    axios.get("http://localhost:8000/api/pets")
+    axios.get("/api/pets")
       .then( res => {
         this.setState({pets: res.data.pets});
       })
@@ -21,7 +21,7 @@ class List extends Component {
   }
 
   delete = (_id) => {
-    axios.delete(`http://localhost:8000/api/pets/${_id}`)
+    axios.delete(`/api/pets/${_id}`)
       .then( res => {
         console.log(res);
         this.componentDidMount();

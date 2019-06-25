@@ -13,14 +13,14 @@ export class View extends Component {
     }
     componentDidMount = () => {
         console.log(this.props.match.params._id);
-        axios.get(`http://localhost:8000/api/pets/${this.props.match.params._id}`)
+        axios.get(`/api/pets/${this.props.match.params._id}`)
             .then(res => {
                 this.setState({pet: res.data.pet});
             })
     }
    
     updateLike = (e) => {
-        axios.put(`http://localhost:8000/api/pets/${this.state.pet._id}`, this.state.pet)
+        axios.put(`/api/pets/${this.state.pet._id}`, this.state.pet)
         .then( res => {
             console.log(res);
             // this.componentDidMount();
@@ -37,7 +37,7 @@ export class View extends Component {
         this.setState({pet: p, disabled: true}, function () {this.updateLike();})
       }
     delete = (_id) => {
-        axios.delete(`http://localhost:8000/api/pets/${_id}`)
+        axios.delete(`/api/pets/${_id}`)
         .then( res => {
             if(res.data.errors){
               this.setState({errors: res.data.errors.errors})
