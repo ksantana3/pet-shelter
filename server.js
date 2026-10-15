@@ -2,7 +2,7 @@ const express = require("express"),
          cors = require("cors"),
           app = express(),
        DB_NAME = "petdb"
-         port = 8000,
+         port = process.env.PORT || 8000,
            bp = require("body-parser");
 
 app.use(cors());
